@@ -31,14 +31,6 @@
   <div id="status">Listo para iniciar - toca el botón</div>
 </div>
 <script> window.addEventListener('arjs-video-loaded', function(e) {
-      const video = document.querySelector('video');
-      if (video) {
-        video.setAttribute('playsinline', '');
-        video.setAttribute('webkit-playsinline', '');
-        video.muted = true;
-        video.play();
-      }
-    });
   var statusEl = document.getElementById('status');
   var btn = document.getElementById('start-ar');
   var bundleLoaded = false;
