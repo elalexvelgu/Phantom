@@ -30,18 +30,14 @@
   <button id="start-ar" type="button">Iniciar AR</button>
   <div id="status">Listo para iniciar - toca el botón</div>
 </div>
-<script>
- const inputs = document.querySelectorAll('input[type="file"]');
-    const vistaPrevia = document.getElementById('vistaPrevia');
-
-    inputs.forEach((input) => {
-      input.addEventListener('change', (evento) => {
-        const archivo = evento.target.files[0];
-        if (!archivo) return;
-
-        vistaPrevia.src = URL.createObjectURL(archivo);
-        vistaPrevia.style.display = 'block';
-      });
+<script> window.addEventListener('arjs-video-loaded', function(e) {
+      const video = document.querySelector('video');
+      if (video) {
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.muted = true;
+        video.play();
+      }
     });
   var statusEl = document.getElementById('status');
   var btn = document.getElementById('start-ar');
