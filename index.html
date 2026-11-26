@@ -31,6 +31,18 @@
   <div id="status">Listo para iniciar - toca el botón</div>
 </div>
 <script>
+ const inputs = document.querySelectorAll('input[type="file"]');
+    const vistaPrevia = document.getElementById('vistaPrevia');
+
+    inputs.forEach((input) => {
+      input.addEventListener('change', (evento) => {
+        const archivo = evento.target.files[0];
+        if (!archivo) return;
+
+        vistaPrevia.src = URL.createObjectURL(archivo);
+        vistaPrevia.style.display = 'block';
+      });
+    });
   var statusEl = document.getElementById('status');
   var btn = document.getElementById('start-ar');
   var bundleLoaded = false;
